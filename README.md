@@ -1,0 +1,1 @@
+# hyperskill_python_corner_shop_calculator

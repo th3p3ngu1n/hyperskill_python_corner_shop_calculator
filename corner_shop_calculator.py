@@ -26,11 +26,35 @@ def stage_1(prices: dict[str, float]):
     display_item_and_money(prices)
 
 
-def stage_2(earnings: dict[str, float]):
+def display_earned_amount(earnings: dict[str, float], income: float):
     print("Earned amount:")
+
     display_item_and_money(earnings)
-    income = sum(earnings.values())
+
     print(f"\nIncome: ${income:.1f}")
 
 
-stage_2(earnings)
+def get_income(earnings: dict[str, float]) -> float:
+    income = sum(earnings.values())
+    return income
+
+
+def stage_2(earnings: dict[str, float]):
+    income = get_income(earnings)
+    display_earned_amount(earnings, income)
+
+
+def stage_3(earnings: dict[str, float]):
+    income = get_income(earnings)
+    display_earned_amount(earnings, income)
+
+    staff_expenses = int(input("Staff expenses: "))
+    other_expenses = int(input("Other expenses: "))
+    total_expenses = staff_expenses + other_expenses
+
+    net_income = income - total_expenses
+    print(f"Net income: ${net_income}")
+
+
+if __name__ == "__main__":
+    stage_3(earnings)
